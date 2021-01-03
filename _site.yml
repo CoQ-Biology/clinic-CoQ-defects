@@ -1,0 +1,37 @@
+name: "Clinical manifestations of primary CoQ deficiencies"
+output_dir: "docs"
+output:
+  html_document:
+    theme: flatly
+navbar:
+  title: "CoQ defects"
+  left:
+    - text: ""
+      icon: fa-home
+      href: index.html
+    - text: "CSN"
+      href: CSN.html
+    - text: "Heart"
+      href: Heart.html
+    - text: "Kidney"
+      href: Kidney.html
+    - text: "Liver"
+      href: Liver.html
+    - text: "Lung"
+      href: Lung.html
+    - text: "Muscle"
+      href: Muscle.html
+    - text: "PNS/Sensory organs"
+      href: PNS.html
+    - text: "Other"
+      href: Other.html
+    - text: "Table"
+      href: Table.html
+
+
+  right:
+    - icon: ion-social-twitter
+      href: https://twitter.com/mitowomen
+    - icon: fa-envelope
+      href: mailto:mitowomen@gmail.com
+
