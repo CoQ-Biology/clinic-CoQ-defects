@@ -1,5 +1,5 @@
 ---
-title: "PNS/Sensory organs"
+title: "Peripheral Nervous System/Sensory organs"
 ---
 
 ```{r setup, include=FALSE}

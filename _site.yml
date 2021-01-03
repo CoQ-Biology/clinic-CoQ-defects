@@ -9,27 +9,28 @@ navbar:
     - text: ""
       icon: fa-home
       href: index.html
-    - text: "CSN"
-      href: CSN.html
-    - text: "Heart"
-      href: Heart.html
-    - text: "Kidney"
-      href: Kidney.html
-    - text: "Liver"
-      href: Liver.html
-    - text: "Lung"
-      href: Lung.html
-    - text: "Muscle"
-      href: Muscle.html
-    - text: "PNS/Sensory organs"
-      href: PNS-Sensory.html
-    - text: "Other"
-      href: Other.html
-    - text: "Table"
-      href: Table.html
-    - text: "Bibliography"
-      href: Bibliography.html
+      
+    - text: "Symptoms by system"
+      menu:
+        - text: "CNS"
+          href: CNS.html
+        - text: "PNS/Sensory organs"
+          href: PNS-Sensory.html
+        - text: "Kidney"
+          href: Kidney.html
+        - text: "Heart"
+          href: Heart.html
+        - text: "Muscle"
+          href: Muscle.html
+        - text: "Lung"
+          href: Lung.html
+        - text: "Liver"
+          href: Liver.html
+        - text: "Other"
+          href: Other.html
 
+    - text: "Searchable table"
+      href: Table.html
 
   right:
     - icon: fa-envelope

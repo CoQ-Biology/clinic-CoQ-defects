@@ -1,5 +1,5 @@
 ---
-title: "CSN"
+title: "Central Nervous System"
 ---
 
 ```{r setup, include=FALSE}
