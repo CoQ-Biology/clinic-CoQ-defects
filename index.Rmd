@@ -1,6 +1,9 @@
 ---
 title: "Clinical manifestations of primary CoQ deficiencies"
+author: "María Alcázar-Fabra, Francisco Rodríguez-Sánchez, Eva Trevisson & Gloria Brea-Calvo"
 ---
+
+<br>
 
 Primary coenzyme Q (CoQ) deficiencies are clinically heterogeneous and lack a clear genotype-phenotype correlation. With this platform, we aim to gain insight of the most common manifestations associated with the different COQ genes to improve the diagnosis of patients.
 
