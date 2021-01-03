@@ -27,6 +27,8 @@ navbar:
       href: Other.html
     - text: "Table"
       href: Table.html
+    - text: "Bibliography"
+      href: Bibliography.html
 
 
   right:
