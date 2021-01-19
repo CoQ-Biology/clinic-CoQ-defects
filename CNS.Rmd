@@ -8,7 +8,7 @@ source("utils.R")
 ```
 
 ```{r out.width='100%', fig.height=9}
-plotfun(grupo = "CSN")
+plotfun(grupo = "CNS")
 ```
 
 
