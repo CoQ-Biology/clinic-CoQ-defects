@@ -21,7 +21,7 @@ Primary coenzyme Q (CoQ) deficiencies are clinically heterogeneous and currently
 
 In the tabs above you can search the frequency of clinical manifestations grouped by system for each gene.
 
-Go to table to search the data by involved system, specific manifestation or *COQ* gene.
+Go to [table](Table.html) to search the data by involved system, specific manifestation or *COQ* gene.
 
 This tool is part of the review *GENOTYPE-PHENOTYPE CORRELATIONS IN PRIMARY COENZYME Q DEFICIENCIES*, María Alcázar-Fabra, Francisco Rodríguez-Sánchez, Eva Trevisson & Gloria Brea-Calvo (submitted).  
 
