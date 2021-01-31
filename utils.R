@@ -4,7 +4,7 @@ library(assertr)
 library(ggplot2)
 
 
-datos <- gsheet::gsheet2tbl("https://docs.google.com/spreadsheets/d/1zCc9r7Uy_6ujOU5qXc7VOXuN4OSvIJg5Tx9iqWw6swY/edit?usp=sharing", sheetid = 1) %>%
+datos <- gsheet::gsheet2tbl("https://docs.google.com/spreadsheets/d/1zCc9r7Uy_6ujOU5qXc7VOXuN4OSvIJg5Tx9iqWw6swY/edit#gid=0") %>%
   arrange(group)
 
 npatients <- gsheet::gsheet2tbl("https://docs.google.com/spreadsheets/d/1zCc9r7Uy_6ujOU5qXc7VOXuN4OSvIJg5Tx9iqWw6swY/edit?usp=sharing#gid=1452337852") 
