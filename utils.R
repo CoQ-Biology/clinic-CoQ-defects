@@ -59,7 +59,7 @@ plotfun <- function(df = datos.long, grupo = NULL, npat = npatients) {
     geom_tile(aes(fill = value), colour = "grey80",
               height = 1, width = 1) +
     #scale_fill_viridis(name = "% patients", option = "magma") +
-    scale_fill_distiller(name = "% patients", type = "seq",
+    scale_fill_distiller(name = "% patients\n", type = "seq",
                          palette = "YlGnBu", direction = 1,
                          limits = c(0, 100)) +
     coord_equal(clip = "off") +
@@ -69,7 +69,9 @@ plotfun <- function(df = datos.long, grupo = NULL, npat = npatients) {
     ylab("") +
     theme(plot.margin = unit(c(0, 0, 0.5, 0), "cm")) +
     theme(panel.background = element_blank()) +
-    geom_text(data = patients, aes(y = 0, label = n.pat), size = 3)
+    geom_text(data = patients, aes(y = 0, label = n.pat), size = 3) +
+    annotate("text", x = 5.5, y = -1, label = "Number of patients per gene", 
+             size = 3, colour = "grey20")
   
   heatm
   
