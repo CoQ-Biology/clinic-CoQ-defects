@@ -61,7 +61,7 @@ plotfun <- function(df = datos.long, grupo = NULL, npat = npatients) {
     #scale_fill_viridis(name = "% patients", option = "magma") +
     scale_fill_distiller(name = "% patients\n", type = "seq",
                          palette = "YlGnBu", direction = 1,
-                         limits = c(0, 100)) +
+                         limits = c(0.001, 100), na.value = "grey99") +
     coord_equal(clip = "off") +
     scale_x_discrete(position = "top") +
     theme(axis.text.x.top = element_text(angle = 90, hjust = 0, vjust = 0.5)) +
