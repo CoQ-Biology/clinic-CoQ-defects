@@ -37,15 +37,16 @@ plotfun <- function(df = datos.long, grupo = NULL, npat = npatients) {
   
   datos.sub <- df %>%
     dplyr::filter(group == grupo) %>%
+    # dplyr::filter(value > 0) %>% 
     mutate(symptom = factor(symptom, 
                             levels = sort(unique(symptom), decreasing = TRUE)))
   
   ## Sort rows by prevalence
   df2 <- datos.sub %>%
-    dplyr::filter(value > 0) %>%
+    # dplyr::filter(value > 0) %>%
     group_by(symptom) %>%
     summarise(n.site = sum(value)) %>%
-    arrange(n.site)
+    arrange(n.site) 
   
   datos.sub$symptom <- factor(datos.sub$symptom, levels = df2$symptom)
   
