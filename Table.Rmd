@@ -1,5 +1,5 @@
 ---
-title: "Table"
+title: "Observed associations between symptoms and *CoQ* genes"
 ---
 
 ```{r setup, include=FALSE}
@@ -7,7 +7,12 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 source("utils.R")
 ```
 
-In this table you can search by symptom (and link to symptom description). Numbers represent number of patients.
+<br>
+
+In this table you can search reported associations between symptoms and *CoQ* genes by system (Central Nervous System CNS, Peripheral Nervous System and sensory organs PNS/sensory organs, Kidney, Heart, Muscle, Lung, Liver, Other), symptom, or gene involved. Numbers represent number of patients showing that pathogenic variant and symptom.
+
+<br>
+
 
 ```{r out.width='100%'}
 library(DT)
