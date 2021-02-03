@@ -17,13 +17,13 @@ title: "Clinical manifestations of primary CoQ deficiencies"
 
 <br>
 
-Primary coenzyme Q (CoQ) deficiencies are clinically heterogeneous and currently lack a clear genotype-phenotype correlation. With this platform, we aim to compile the frequency of manifestations associated with the different *COQ* genes that are reported in the literature, to improve the diagnosis of patients.
+Primary coenzyme Q (CoQ) deficiencies are clinically heterogeneous and currently lack a clear genotype-phenotype correlation. As a result, most cases are not diagnosed or are diagnosed too late. To help guide diagnosis and early treatment, here we analyse the associations between clinical manifestations (symptoms) and the different *COQ* genes that are reported in the literature.
 
-In the tabs above you can search the frequency of clinical manifestations grouped by system for each gene.
+In the tabs above you can search the frequency of clinical manifestations grouped by system ([Central Nervous System](CNS.html), [Peripheral Nervous System and sensory organs](PNS-Sensory.html), [Kidney](Kidney.html), [Heart](Heart.html), [Muscle](Muscle.html), [Lung](Lung.html), [Liver](Liver.html), [Other](Other.html)) and for each *COQ* gene.
 
-Go to [table](Table.html) to search the data by involved system, specific manifestation or *COQ* gene.
+Go to [Table](Table.html) to search the data by involved system, specific manifestation or *COQ* gene.
 
-This tool is part of the review *GENOTYPE-PHENOTYPE CORRELATIONS IN PRIMARY COENZYME Q DEFICIENCIES*, María Alcázar-Fabra, Francisco Rodríguez-Sánchez, Eva Trevisson & Gloria Brea-Calvo (submitted).  
+This tool is part of the review *GENOTYPE-PHENOTYPE CORRELATIONS IN PRIMARY COENZYME Q DEFICIENCIES*, María Alcázar-Fabra, Francisco Rodríguez-Sánchez, Eva Trevisson & Gloria Brea-Calvo (in review).  
 
 Last update: `r Sys.Date()`
 

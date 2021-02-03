@@ -4,7 +4,7 @@ output:
   html_document:
     theme: flatly
 navbar:
-  title: "CoQ defects"
+  title: "CoQ deficiency"
   left:
     - text: ""
       icon: fa-home
