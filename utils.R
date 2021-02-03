@@ -61,13 +61,13 @@ plotfun <- function(df = datos.long, grupo = NULL, npat = npatients) {
     #scale_fill_viridis(name = "% patients", option = "magma") +
     scale_fill_distiller(name = "% patients\nshowing\nspecific\nsymptom\n(per gene)\n", type = "seq",
                          palette = "YlGnBu", direction = 1,
-                         limits = c(0.001, 100), na.value = "grey99") +
+                         limits = c(0.001, 100), na.value = "#FFFFE04D") +
     coord_equal(clip = "off") +
     scale_x_discrete(position = "top") +
     theme(axis.text.x.top = element_text(angle = 90, hjust = 0, vjust = 0.5)) +
     xlab("") +
     ylab("") +
-    theme(legend.title.align = 0.5, legend.title = element_text(size = 10)) +
+    theme(legend.title.align = 0, legend.title = element_text(size = 10)) +
     theme(plot.margin = unit(c(0, 0, 0.5, 0), "cm")) +
     theme(panel.background = element_blank()) +
     geom_text(data = patients, aes(y = 0, label = n.pat), size = 3) +
