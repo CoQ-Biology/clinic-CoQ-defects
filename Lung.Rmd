@@ -7,6 +7,13 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 source("utils.R")
 ```
 
+<br>
+
+The heatmap below shows, for each *COQ* gene involved, the percentage of patients showing a specific symptom or clinical manifestation. The total number of patients reported for each gene are shown at the bottom.
+
+<br>
+
+
 ```{r out.width='100%'}
 plotfun(grupo = "Lung")
 ```
