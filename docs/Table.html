@@ -13,12 +13,22 @@
 
 <title>Observed associations between symptoms and CoQ genes</title>
 
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -47,11 +57,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -64,32 +69,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -100,10 +79,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -120,40 +95,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 60px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h2 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h3 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h4 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h5 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h6 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -181,7 +129,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -193,7 +141,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -204,10 +152,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -219,7 +180,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -351,7 +311,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -363,8 +323,8 @@ $(document).ready(function () {
 <p><br></p>
 <p>In this table you can search reported associations between symptoms and <em>CoQ</em> genes by system (Central Nervous System CNS, Peripheral Nervous System and sensory organs PNS/sensory organs, Kidney, Heart, Muscle, Lung, Liver, Other), symptom, or gene involved. Numbers represent number of patients showing that pathogenic variant and symptom.</p>
 <p><br></p>
-<div id="htmlwidget-ec6ce1c99163b749c839" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ec6ce1c99163b749c839">{"x":{"filter":"top","filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"7\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"26\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"19\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"3\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"26\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"3\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"70\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"65\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"6\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Liver","Liver","Liver","Liver","Liver","Lung","Lung","Lung","Lung","Lung","Lung","Lung","Muscle","Muscle","Muscle","Muscle","Muscle","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs"],["Autosomal recessive cerebellar ataxia 2 (ARCA2)","Basal ganglia lesions (BGL)","Cerebellar atrophy (CAt)","Cerebellar hypoplasia (CHyp)","Cerebral atrophy","Cerebral Hypoplasia","Cerebral palsy","Chorea","Depression","Deteriorated ambulation (DAmb)","Developmental delay(DD)","Dysarthria (Dy)","Dysdiadochokinesia","Dysmetria","Dystonia","Encephalopathy","Epilepsy (Ep)","Gait instability (GI)","Headaches","Hypotonia (Ht)","Impaired Handwriting (IH)","Intellectual deficiency (ID)","Leigh-like Syndrome (LS)","Migraine","Multifocal global ischemic events (MGIE)","Muscle stiffness (MS)","Myoclonus (My)","Non-visual pursuit (nVP)","Nystagmus (Ny)","Opisthotonus","Ptosis (Pt)","Pyramidal syndrome","Saccadic eye movements (SEM)","Seizures (Sz)","Slow ocular pursuit","Spams","Spasticity (Sp)","Sporadic Multisystem Atrophy (MSA)","Strabismus","Stroke-like lessions (SLL)","Thalamic hypoplasia (THyp)","Tremor (Tr)","Bradycardia","Cardiomegaly","Cardiomyopathy","Heart Failure(HF)","Heart hypoplasia (HHyp)","Hypertrophic Cardiomyopathy (HCM)","Isolated ventricular non-compactation (IVNC)","Pericardial effusion","Septal defects","Tachycardia","Valvulopathy (Vp)","Diastolic dysfunction","Chronic kidney disease (CKD)","Dysplastic kidneys","End-stage Renal Disease (ESRD)","Enlarged kidneys","Hematuria","Kidney dysfunction (KD)","Medullary nephrocalcinosis (MNC)","Only Proteinuria","Renal cysts","Steroid resistant nephrotic syndrome (SRNS)","Tubulopathy (Tp)","Cholestatic Liver","Hepatomegaly","Hepatosteatosis","Liver failure (LF)","Reduced hematopoiesis in liver","Respiratory distress (RD)","Neonatal Pneumonia","Respiratory failure (RF)","Apnea","Chronic Lung Disease (CLD)","Recurrent Respiratory infections","Lung Hypoplasia (LHyp)","Exercise intolerance (EI)","Lipid accumulation in muscle (LAM)","Muscle fatigue (MF)","Muscle weakness (MW)","Myopathy","Dysmorphic features","Edema","Diabetes Mellitus (DM)","Obesity","Hypercholesterolemia","Goiter","Hypothyroidism","Cyanosis","Hypertension (HT)","Hypotension","Livedo Reticularis (LR)","Dyspnea","Circulatory collapse","Noctural enuresis","Polyuria","Polidypsia","Coma","Hypospadias","Lupus-like symptoms","Oligohydramnios","Recurrent Otitis","Splenomegaly","Crohn's Disease (CD)","Astigmatism","Cataracts","Delayed visual maturation","Hearing impairment","Hearing Loss (HL)","Hypermetropia","Myopia","Optic Nerve Atrophy (OA)","Peripheral Neuropathy (PNSN)","Retinitis Pigmentosa (RP)","Retinopathy (Rp)","Rod-Cone dysfunction","Sensorineural hearing loss (SNHL)","Visual aureas","Visual dysfunction"],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,2,0,0],[3,1,0,0,0,0,1,0,0,0,1,0,0,0,1,1,0,0,0,2,0,3,1,0,0,0,0,0,2,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,7,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,2,1,0,2,0,0,4,0,2],[0,1,1,0,0,0,0,0,0,0,2,0,0,0,2,9,4,0,0,6,0,0,0,0,0,1,2,1,3,0,0,0,0,11,0,0,0,0,0,2,0,1,1,0,0,0,0,3,0,0,0,0,0,0,1,0,10,0,0,2,0,1,0,26,1,1,0,0,3,0,2,0,5,2,1,1,0,0,1,0,1,0,0,11,6,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0],[4,5,8,10,6,1,0,0,0,6,18,2,2,2,6,11,9,0,0,19,0,6,2,0,0,0,1,0,1,0,0,0,1,19,0,2,8,0,0,2,1,2,5,3,0,2,1,13,0,1,1,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,14,0,5,9,0,1,0,0,0,0,0,2,1,0,0,0,0,0,0,2,0,2,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,2,1,0,0,0,1,0,0,0,0,0,6],[3,0,3,0,0,0,0,0,0,0,2,3,0,2,0,3,1,0,0,0,0,3,0,0,0,0,2,0,3,0,0,0,1,2,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,4,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,1,0,1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,2,0,16,0,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1,2,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,18,0,1],[0,1,0,0,1,0,0,0,0,0,3,0,0,0,0,1,0,0,0,3,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,0,2,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,2,0,0,0,0,0,1,0,0,0,3,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,3,0,2],[70,0,62,2,0,0,0,2,3,0,13,27,8,21,14,2,15,16,0,7,11,35,0,5,0,0,14,0,9,0,3,1,14,19,1,0,8,0,4,6,0,33,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,14,3,3,13,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,2,1,1],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,2,0,4,0,0,4,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,2,1,0,2,0,1,2,0,0,0,18,0,47,1,8,1,7,7,0,65,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,16,0,0,1,2,1,0,11,0,0,1,0,2,1,1,0,1,1,0,1,1,1,2,0,0,0,0,2,0,0,0,1,0,0,0,0,1],[0,1,1,1,0,0,0,0,0,0,6,0,0,0,1,3,0,0,0,2,0,0,2,0,1,1,0,0,0,1,0,0,0,3,0,0,0,0,0,0,0,0,2,1,0,0,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,1,0,0,0,0,1,3,0,0,2,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group<\/th>\n      <th>symptom<\/th>\n      <th>PDSS1<\/th>\n      <th>PDSS2<\/th>\n      <th>COQ2<\/th>\n      <th>COQ4<\/th>\n      <th>COQ5<\/th>\n      <th>COQ6<\/th>\n      <th>COQ7<\/th>\n      <th>COQ8A<\/th>\n      <th>COQ8B<\/th>\n      <th>COQ9<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10,11]}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b872949d9c81667d2e91" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b872949d9c81667d2e91">{"x":{"filter":"top","filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"7\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"26\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"19\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"3\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"26\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"3\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"70\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"65\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"0\" data-max=\"6\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","CNS","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Heart","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Kidney","Liver","Liver","Liver","Liver","Liver","Lung","Lung","Lung","Lung","Lung","Lung","Lung","Muscle","Muscle","Muscle","Muscle","Muscle","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","Other","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs","PNS/sensory organs"],["Autosomal recessive cerebellar ataxia 2 (ARCA2)","Basal ganglia lesions (BGL)","Cerebellar atrophy (CAt)","Cerebellar hypoplasia (CHyp)","Cerebral atrophy","Cerebral Hypoplasia","Cerebral palsy","Chorea","Depression","Deteriorated ambulation (DAmb)","Developmental delay(DD)","Dysarthria (Dy)","Dysdiadochokinesia","Dysmetria","Dystonia","Encephalopathy","Epilepsy (Ep)","Gait instability (GI)","Headaches","Hypotonia (Ht)","Impaired Handwriting (IH)","Intellectual deficiency (ID)","Leigh-like Syndrome (LS)","Migraine","Multifocal global ischemic events (MGIE)","Muscle stiffness (MS)","Myoclonus (My)","Non-visual pursuit (nVP)","Nystagmus (Ny)","Opisthotonus","Ptosis (Pt)","Pyramidal syndrome","Saccadic eye movements (SEM)","Seizures (Sz)","Slow ocular pursuit","Spams","Spasticity (Sp)","Sporadic Multisystem Atrophy (MSA)","Strabismus","Stroke-like lessions (SLL)","Thalamic hypoplasia (THyp)","Tremor (Tr)","Bradycardia","Cardiomegaly","Cardiomyopathy","Heart Failure(HF)","Heart hypoplasia (HHyp)","Hypertrophic Cardiomyopathy (HCM)","Isolated ventricular non-compactation (IVNC)","Pericardial effusion","Septal defects","Tachycardia","Valvulopathy (Vp)","Diastolic dysfunction","Chronic kidney disease (CKD)","Dysplastic kidneys","End-stage Renal Disease (ESRD)","Enlarged kidneys","Hematuria","Kidney dysfunction (KD)","Medullary nephrocalcinosis (MNC)","Only Proteinuria","Renal cysts","Steroid resistant nephrotic syndrome (SRNS)","Tubulopathy (Tp)","Cholestatic Liver","Hepatomegaly","Hepatosteatosis","Liver failure (LF)","Reduced hematopoiesis in liver","Respiratory distress (RD)","Neonatal Pneumonia","Respiratory failure (RF)","Apnea","Chronic Lung Disease (CLD)","Recurrent Respiratory infections","Lung Hypoplasia (LHyp)","Exercise intolerance (EI)","Lipid accumulation in muscle (LAM)","Muscle fatigue (MF)","Muscle weakness (MW)","Myopathy","Dysmorphic features","Edema","Diabetes Mellitus (DM)","Obesity","Hypercholesterolemia","Goiter","Hypothyroidism","Cyanosis","Hypertension (HT)","Hypotension","Livedo Reticularis (LR)","Dyspnea","Circulatory collapse","Noctural enuresis","Polyuria","Polidypsia","Coma","Hypospadias","Lupus-like symptoms","Oligohydramnios","Recurrent Otitis","Splenomegaly","Crohn's Disease (CD)","Astigmatism","Cataracts","Delayed visual maturation","Hearing impairment","Hearing Loss (HL)","Hypermetropia","Myopia","Optic Nerve Atrophy (OA)","Peripheral Neuropathy (PNSN)","Retinitis Pigmentosa (RP)","Retinopathy (Rp)","Rod-Cone dysfunction","Sensorineural hearing loss (SNHL)","Visual aureas","Visual dysfunction"],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,2,0,0],[3,1,0,0,0,0,1,0,0,0,1,0,0,0,1,1,0,0,0,2,0,3,1,0,0,0,0,0,2,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,7,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,2,1,0,2,0,0,4,0,2],[0,1,1,0,0,0,0,0,0,0,2,0,0,0,2,9,4,0,0,6,0,0,0,0,0,1,2,1,3,0,0,0,0,11,0,0,0,0,0,2,0,1,1,0,0,0,0,3,0,0,0,0,0,0,1,0,10,0,0,2,0,1,0,26,1,1,0,0,3,0,2,0,5,2,1,1,0,0,1,0,1,0,0,11,6,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0],[4,5,8,10,6,1,0,0,0,6,18,2,2,2,6,11,9,0,0,19,0,6,2,0,0,0,1,0,1,0,0,0,1,19,0,2,8,0,0,2,1,2,5,3,0,2,1,13,0,1,1,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,14,0,5,9,0,1,0,0,0,0,0,2,1,0,0,0,0,0,0,2,0,2,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,2,1,0,0,0,1,0,0,0,0,0,6],[3,0,3,0,0,0,0,0,0,0,2,3,0,2,0,3,1,0,0,0,0,3,0,0,0,0,2,0,3,0,0,0,1,2,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,4,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,1,0,1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,2,0,16,0,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1,2,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,18,0,1],[0,1,0,0,1,0,0,0,0,0,3,0,0,0,0,1,0,0,0,3,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,0,2,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,2,0,0,0,0,0,1,0,0,0,3,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,3,0,2],[70,0,62,2,0,0,0,2,3,0,13,27,8,21,14,2,15,16,0,7,11,35,0,5,0,0,14,0,9,0,3,1,14,19,1,0,8,0,4,6,0,33,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,14,3,3,13,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,2,1,1],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,2,0,4,0,0,4,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,2,1,0,2,0,1,2,0,0,0,18,0,47,1,8,1,7,7,0,65,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,16,0,0,1,2,1,0,11,0,0,1,0,2,1,1,0,1,1,0,1,1,1,2,0,0,0,0,2,0,0,0,1,0,0,0,0,1],[0,1,1,1,0,0,0,0,0,0,6,0,0,0,1,3,0,0,0,2,0,0,2,0,1,1,0,0,0,1,0,0,0,3,0,0,0,0,0,0,0,0,2,1,0,0,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,1,0,0,0,0,1,3,0,0,2,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group<\/th>\n      <th>symptom<\/th>\n      <th>PDSS1<\/th>\n      <th>PDSS2<\/th>\n      <th>COQ2<\/th>\n      <th>COQ4<\/th>\n      <th>COQ5<\/th>\n      <th>COQ6<\/th>\n      <th>COQ7<\/th>\n      <th>COQ8A<\/th>\n      <th>COQ8B<\/th>\n      <th>COQ9<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10,11]}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
 
 
 
@@ -393,7 +353,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

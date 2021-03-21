@@ -23,7 +23,7 @@ In the tabs above you can search the frequency of clinical manifestations groupe
 
 Go to [Table](Table.html) to search the data by involved system, specific manifestation or *COQ* gene.
 
-This tool is part of the review *GENOTYPE-PHENOTYPE CORRELATIONS IN PRIMARY COENZYME Q DEFICIENCIES*, María Alcázar-Fabra, Francisco Rodríguez-Sánchez, Eva Trevisson & Gloria Brea-Calvo (in review).  
+This tool is part of the review *PRIMARY COENZYME Q DEFICIENCIES: A LITERATURE REVIEW AND ONLINE PLATFORM OF CLINICAL FEATURES TO UNCOVER GENOTYPE-PHENOTYPE CORRELATIONS*, María Alcázar-Fabra, Francisco Rodríguez-Sánchez, Eva Trevisson & Gloria Brea-Calvo (2021), which you can read [here](https://authors.elsevier.com/c/1cmZm3AkHAWDtX){target="_blank"}.  
 
 Last update: `r Sys.Date()`
 
